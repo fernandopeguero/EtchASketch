@@ -1,3 +1,11 @@
+:root {
+    /* Colors */
+    --bg-color: #10375C;
+    --text-color: #F3C623;
+    --text-color-white: #F4F6FF;
+
+}
+
 html {
     box-sizing: border-box;
     font-size: 16px;
