@@ -45,3 +45,9 @@ img {
 body {
     background-color: var(--bg-color);
 }
+
+.grid-container {
+    background-color: var(--text-color-white);
+    width: 500px;
+    height: 500px;
+}
