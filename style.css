@@ -55,8 +55,33 @@ body {
     background-color: var(--text-color-white);
     width: 500px;
     height: 500px;
+    margin: 1em auto;
+
 }
 
 h1 {
     text-align: center;
+    margin: 1em;
+}
+
+.input-controler,
+.button-controler {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.input-controler {
+
+    margin-bottom: 16px;
+}
+
+
+.button-controler * {
+    flex: 1;
+}
+
+.grid-size {
+    flex: 1;
 }
