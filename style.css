@@ -44,6 +44,10 @@ img {
 
 body {
     background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    place-items: center;
+    place-content: center;
 }
 
 .grid-container {
