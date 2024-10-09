@@ -3,6 +3,7 @@
     --bg-color: #10375C;
     --text-color: #F3C623;
     --text-color-white: #F4F6FF;
+    --bg-grid-color: #F5F7F8;
 
 }
 
@@ -100,4 +101,16 @@ button {
     height: 25px;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1;
+    background-color: var(--bg-grid-color);
+}
+
+.block {
+    flex: 1;
+    background-color: var(--text-color-white);
 }
