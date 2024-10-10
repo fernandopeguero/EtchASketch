@@ -36,6 +36,8 @@ function createGrid(size) {
 
                 if(currentColor === "black"){
                     this.style.backgroundColor = "black";
+                } else if (currentColor === "erase") {
+                    this.style.backgroundColor = "white";
                 } else if (currentColor === "gray-scale"){
                     this.style.backgroundColor = currentGrayColor();
                 }
