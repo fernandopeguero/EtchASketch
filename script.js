@@ -3,6 +3,7 @@ const containerWidth = 500;
 
 const userInput = document.querySelector(".grid-size");
 
+let currentColor = "black";
 
 
 const buttonControler = document.querySelector(".buttons-controler");
@@ -29,8 +30,10 @@ function createGrid(size) {
             div.style.minWidth = gridWidth +"px";
 
             div.addEventListener("mouseover" , function (e) {
+                if(currentColor === "black"){
+                    this.style.backgroundColor = "black";
+                }
 
-                this.style.backgroundColor = currentColor;
             })
             container.appendChild(div)
         }
@@ -47,5 +50,5 @@ createGrid(1);
 
 buttonControler.addEventListener("click" , (e) => {
 
-    console.log(e.target.classList[0]);
+    currentColor = e.target.classList[0];
 })
