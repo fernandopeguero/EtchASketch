@@ -73,7 +73,7 @@ h1 {
 }
 
 .input-controler,
-.button-controler {
+.buttons-controler {
 
     display: flex;
     gap: 10px;
@@ -86,7 +86,7 @@ h1 {
 }
 
 
-.button-controler * {
+.buttons-controler * {
     flex: 1;
 }
 
