@@ -4,7 +4,7 @@ const containerWidth = 500;
 const userInput = document.querySelector(".grid-size");
 
 let currentColor = "black";
-const grayScale = ["#727272", "#646464", "#565656", "#484848", "#3a3a3a", "#2c2c2c", "#1b1b1b", "#000"];
+const grayScale = ["#dddddd", "#bbbbbb", "#565656", "#484848", "#3a3a3a", "#2c2c2c", "#1b1b1b", "#000"];
 
 const buttonControler = document.querySelector(".buttons-controler");
 
@@ -16,6 +16,8 @@ userInput.addEventListener("input", (e) => {
 
 
 function createGrid(size) {
+    
+    gridSize = Number(size);
 
     const container = document.querySelector(".grid-container");
 
@@ -36,23 +38,37 @@ function createGrid(size) {
                 } else if (currentColor === "gray-scale"){
                     this.style.backgroundColor = grayScale[Math.ceil(Math.random() * grayScale.length)];
                 }
-
                 
             })
             container.appendChild(div)
         }
     }
-
 }
-
 
 createGrid(1);
 
 
+function reset() {
+    userInput.value = 1;
+    gridSize = 1;
+    createGrid(1);
+}
 
 // Buttons event listeners 
 
 buttonControler.addEventListener("click" , (e) => {
 
-    currentColor = e.target.classList[0];
+    const target = e.target.classList[0];
+
+    switch(target) {
+        case "reset":
+            reset();
+            break;
+        default :
+            currentColor = e.target.classList[0];
+    }
+    
 })
+
+
+
