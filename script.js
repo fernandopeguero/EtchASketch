@@ -3,6 +3,10 @@ const containerWidth = 500;
 
 const userInput = document.querySelector(".grid-size");
 
+
+
+const buttonControler = document.querySelector(".buttons-controler");
+
 userInput.addEventListener("input", (e) => {
     gridSize = e.target.value || 1;
 
@@ -23,6 +27,11 @@ function createGrid(size) {
             const div = document.createElement("div");
             div.classList.add("block");
             div.style.minWidth = gridWidth +"px";
+
+            div.addEventListener("mouseover" , function (e) {
+
+                this.style.backgroundColor = currentColor;
+            })
             container.appendChild(div)
         }
     }
@@ -33,3 +42,10 @@ function createGrid(size) {
 createGrid(1);
 
 
+
+// Buttons event listeners 
+
+buttonControler.addEventListener("click" , (e) => {
+
+    console.log(e.target.classList[0]);
+})
