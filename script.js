@@ -4,7 +4,7 @@ const containerWidth = 500;
 const userInput = document.querySelector(".grid-size");
 
 let currentColor = "black";
-
+const grayScale = ["#727272", "#646464", "#565656", "#484848", "#3a3a3a", "#2c2c2c", "#1b1b1b", "#000"];
 
 const buttonControler = document.querySelector(".buttons-controler");
 
@@ -30,10 +30,14 @@ function createGrid(size) {
             div.style.minWidth = gridWidth +"px";
 
             div.addEventListener("mouseover" , function (e) {
+
                 if(currentColor === "black"){
                     this.style.backgroundColor = "black";
+                } else if (currentColor === "gray-scale"){
+                    this.style.backgroundColor = grayScale[Math.ceil(Math.random() * grayScale.length)];
                 }
 
+                
             })
             container.appendChild(div)
         }
