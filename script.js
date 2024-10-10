@@ -18,8 +18,6 @@ function createGrid(size) {
 
     container.innerHTML = "";
 
-    const grid = [];
-
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement("div");
