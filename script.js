@@ -125,7 +125,7 @@ buttonControler.addEventListener("click", (e) => {
 
 // color picker
 
-colorPicker.addEventListener("change", (e) => {
+colorPicker.addEventListener("input", (e) => {
     currentColor = e.target.value;
     changeStatusText();
 });
