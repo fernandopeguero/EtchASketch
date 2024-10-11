@@ -63,19 +63,14 @@ function createGrid(size) {
             div.addEventListener("mouseover", function (e) {
                 if (currentColor === "black") {
                     this.style.backgroundColor = "black";
-                    setStatus("Drawing in black...");
                 } else if (currentColor === "erase") {
                     this.style.backgroundColor = "white";
-                    setStatus("Erasing...");
                 } else if (currentColor === "gray-scale") {
                     this.style.backgroundColor = currentGrayColor();
-                    setStatus("Gray scaling the canvas...👌");
                 } else if (currentColor === "rainbow") {
                     this.style.backgroundColor = currentRainbowColor();
-                    setStatus("🌈 Let there be color 🌈");
                 } else {
                     this.style.backgroundColor = currentColor;
-                    setStatus("Choosing my own color..🖼️🖌️");
                 }
             });
             container.appendChild(div);
@@ -122,10 +117,35 @@ buttonControler.addEventListener("click", (e) => {
     } else {
         currentColor = e.target.classList[0];
     }
+
+    changeStatusText();
 });
 
 // color picker
 
 colorPicker.addEventListener("change", (e) => {
     currentColor = e.target.value;
+    changeStatusText();
 });
+
+function changeStatusText() {
+    switch (currentColor) {
+        case "black":
+            setStatus("Drawing in black...");
+            break;
+        case "gray-scale":
+            setStatus("Gray scaling the canvas...👌");
+            break;
+        case "rainbow":
+            break;
+        case "erase":
+            setStatus("Erasing...");
+            break;
+        case "reset":
+            setStatus("🌈 Let there be color 🌈");
+            break;
+        default:
+            setStatus("Choosing my own color..🖼️🖌️");
+            break;
+    }
+}
