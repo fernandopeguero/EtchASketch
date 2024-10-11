@@ -144,9 +144,6 @@ function changeStatusText() {
         case "erase":
             setStatus("Erasing...");
             break;
-        case "reset":
-            setStatus("Resetting...");
-            break;
         default:
             setStatus("Choosing my own color..🖼️🖌️");
             break;
