@@ -1,6 +1,10 @@
 let gridSize = 1;
 const containerWidth = 500;
 
+// element to show current drawing status make user have a eye queue of what going on
+
+const currentStatus = document.querySelector(".status");
+
 const userInput = document.querySelector(".grid-size");
 
 let currentColor = "black";
@@ -27,6 +31,7 @@ const rainbowList = [
     "#FF0000",
 ];
 
+// color ranges
 const currentGrayColor = nextColor(grayScale);
 const currentRainbowColor = nextColor(rainbowList);
 
@@ -54,22 +59,24 @@ function createGrid(size) {
             const div = document.createElement("div");
             div.classList.add("block");
             div.style.minWidth = gridWidth + "px";
-            div.style.opacity = "10%";
 
             div.addEventListener("mouseover", function (e) {
                 if (currentColor === "black") {
                     this.style.backgroundColor = "black";
+                    setStatus("Drawing in black...");
                 } else if (currentColor === "erase") {
                     this.style.backgroundColor = "white";
+                    setStatus("Erasing...");
                 } else if (currentColor === "gray-scale") {
                     this.style.backgroundColor = currentGrayColor();
+                    setStatus("Gray scaling the canvas...👌");
                 } else if (currentColor === "rainbow") {
                     this.style.backgroundColor = currentRainbowColor();
+                    setStatus("🌈 Let there be color 🌈");
                 } else {
                     this.style.backgroundColor = currentColor;
+                    setStatus("Choosing my own color..🖼️🖌️");
                 }
-
-                this.style.opacity += 10;
             });
             container.appendChild(div);
         }
@@ -99,6 +106,10 @@ function nextColor(list) {
         }
         return list[counter];
     };
+}
+
+function setStatus(status) {
+    currentStatus.textContent = status;
 }
 
 // Buttons event listeners
