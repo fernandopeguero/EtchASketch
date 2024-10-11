@@ -72,6 +72,8 @@ function createGrid(size) {
                 } else {
                     this.style.backgroundColor = currentColor;
                 }
+
+                changeStatusText();
             });
             container.appendChild(div);
         }
@@ -137,12 +139,13 @@ function changeStatusText() {
             setStatus("Gray scaling the canvas...👌");
             break;
         case "rainbow":
+            setStatus("🌈 Let there be color 🌈");
             break;
         case "erase":
             setStatus("Erasing...");
             break;
         case "reset":
-            setStatus("🌈 Let there be color 🌈");
+            setStatus("Resetting...");
             break;
         default:
             setStatus("Choosing my own color..🖼️🖌️");
