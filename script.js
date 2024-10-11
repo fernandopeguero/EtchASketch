@@ -32,6 +32,8 @@ const currentRainbowColor = nextColor(rainbowList);
 
 const buttonControler = document.querySelector(".buttons-controler");
 
+const colorPicker = document.querySelector(".color-picker");
+
 userInput.addEventListener("input", (e) => {
     gridSize = e.target.value || 1;
 
@@ -52,6 +54,7 @@ function createGrid(size) {
             const div = document.createElement("div");
             div.classList.add("block");
             div.style.minWidth = gridWidth + "px";
+            div.style.opacity = "10%";
 
             div.addEventListener("mouseover", function (e) {
                 if (currentColor === "black") {
@@ -62,7 +65,11 @@ function createGrid(size) {
                     this.style.backgroundColor = currentGrayColor();
                 } else if (currentColor === "rainbow") {
                     this.style.backgroundColor = currentRainbowColor();
+                } else {
+                    this.style.backgroundColor = currentColor;
                 }
+
+                this.style.opacity += 10;
             });
             container.appendChild(div);
         }
@@ -99,11 +106,15 @@ function nextColor(list) {
 buttonControler.addEventListener("click", (e) => {
     const target = e.target.classList[0];
 
-    switch (target) {
-        case "reset":
-            reset();
-            break;
-        default:
-            currentColor = e.target.classList[0];
+    if (target === "reset") {
+        reset();
+    } else {
+        currentColor = e.target.classList[0];
     }
+});
+
+// color picker
+
+colorPicker.addEventListener("change", (e) => {
+    currentColor = e.target.value;
 });
