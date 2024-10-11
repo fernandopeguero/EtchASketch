@@ -68,8 +68,15 @@ body {
 
 h1 {
     text-align: center;
-    margin: 1em;
+    margin: 0.7em;
     font-size: 48px;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    opacity: .7;
 }
 
 .input-controler,
